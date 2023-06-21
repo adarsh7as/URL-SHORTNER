@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>URL Shortener</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>URL Shortener</h1>
+    <input type="text" id="urlInput" placeholder="Enter URL">
+    <button onclick="shortenUrl()">Shorten</button>
+    <div id="shortenedUrl"></div>
+  </div>
+
+  <script>
+
+function shortenUrl() {
+  var urlInput = document.getElementById("urlInput");
+  var url = urlInput.value;
+
+  if (url === "") {
+    alert("Please enter a valid URL");
+    return;
+  }
+
+  
+  var shortened = "https://short.ly/" + Math.random().toString(36).substring(7);
+
+  var shortenedUrlElement = document.getElementById("shortenedUrl");
+  shortenedUrlElement.innerHTML = '<a href="' + shortened + '">' + shortened + '</a>';
+  urlInput.value = "";
+}
+
+  </script>
+</body>
+</html>
